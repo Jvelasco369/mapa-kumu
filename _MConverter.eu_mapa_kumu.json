@@ -1,0 +1,83 @@
+{
+  "elements": [
+    {"id": "Beneficiario", "label": "Beneficiarios: Niñas, Niños y Adolescentes", "group": "Actores Clave"},
+    {"id": "Familias", "label": "Familias de Beneficiarios", "group": "Actores Clave"},
+    {"id": "Patronato", "label": "Patronato", "group": "Actores Clave"},
+    {"id": "Equipo", "label": "Equipo Operativo y Administrativo", "group": "Actores Clave"},
+    {"id": "Voluntariado", "label": "Voluntarios", "group": "Actores Clave"},
+    {"id": "Donantes", "label": "Donantes Individ. y Corporativos", "group": "Actores Clave"},
+    {"id": "Hospitales", "label": "Hospitales y Médicos Aliados", "group": "Actores Clave"},
+    {"id": "Instituciones", "label": "Instituciones Aliadas educativas-sociales", "group": "Actores Clave"},
+
+    {"id": "Medico", "label": "Apoyo Médico Integral", "group": "Procesos Centrales"},
+    {"id": "Hospedaje", "label": "Hospedaje", "group": "Procesos Centrales"},
+    {"id": "Alimentacion", "label": "Alimentación y Nutrición", "group": "Procesos Centrales"},
+    {"id": "Educativo", "label": "Apoyo Educativo", "group": "Procesos Centrales"},
+    {"id": "Psicologico", "label": "Apoyo Psicológico y Emocional", "group": "Procesos Centrales"},
+    {"id": "Transporte", "label": "Transporte y Logística Médica", "group": "Procesos Centrales"},
+    {"id": "Recaudacion", "label": "Recaudación de Fondos", "group": "Procesos Centrales"},
+    {"id": "GestionVol", "label": "Voluntariado - Gestión y Participación", "group": "Procesos Centrales"},
+    {"id": "Administracion", "label": "Gestión Institucional y Administración", "group": "Procesos Centrales"},
+    {"id": "Alianzas", "label": "Alianzas Interinstitucionales", "group": "Procesos Centrales"},
+    {"id": "Concientizacion", "label": "Concientización Pública y Prevención", "group": "Procesos Centrales"},
+
+    {"id": "Infraestructura", "label": "Infraestructura Física", "group": "Recursos Necesarios"},
+    {"id": "Medicamentos", "label": "Medicamentos e Insumos Médicos", "group": "Recursos Necesarios"},
+    {"id": "RH", "label": "Recursos Humanos: Personal y Voluntarios", "group": "Recursos Necesarios"},
+    {"id": "Redes", "label": "Alianzas y Redes de Apoyo", "group": "Recursos Necesarios"},
+    {"id": "Financieros", "label": "Recursos Financieros", "group": "Recursos Necesarios"},
+    {"id": "DonEspecie", "label": "Donaciones en Especie / Materiales", "group": "Recursos Necesarios"},
+    {"id": "Tecnologia", "label": "Tecnología y Sistemas de Información", "group": "Recursos Necesarios"},
+
+    {"id": "Salud", "label": "Salud Integral del Paciente", "group": "Objetivos Estratégicos"},
+    {"id": "Supervivencia", "label": "Evitar Abandono / Aumentar Supervivencia", "group": "Objetivos Estratégicos"},
+    {"id": "Educacion", "label": "Continuidad Educativa", "group": "Objetivos Estratégicos"},
+    {"id": "BienestarF", "label": "Bienestar Familiar", "group": "Objetivos Estratégicos"},
+    {"id": "Sostenibilidad", "label": "Sostenibilidad Operativa/Financiera", "group": "Objetivos Estratégicos"},
+    {"id": "Impacto", "label": "Impacto Social / Sensibilización", "group": "Objetivos Estratégicos"},
+
+    {"id": "Sociedad", "label": "Sociedad", "group": "Otros"},
+    {"id": "n1", "label": "Untitled Node", "group": "Otros"}
+  ],
+  "connections": [
+    {"from": "Beneficiario", "to": "Medico", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Hospedaje", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Alimentacion", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Educativo", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Psicologico", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Transporte", "type": "Dependen de"},
+
+    {"from": "Medico", "to": "Medicamentos", "type": "Utiliza"},
+    {"from": "Medico", "to": "Tecnologia", "type": "Utiliza"},
+    {"from": "Hospedaje", "to": "Infraestructura", "type": "Usa"},
+    {"from": "Alimentacion", "to": "DonEspecie", "type": "Usa"},
+    {"from": "Educativo", "to": "Redes", "type": "Usa"},
+    {"from": "Psicologico", "to": "RH", "type": "Usa"},
+    {"from": "Transporte", "to": "Infraestructura", "type": "Usa"},
+    {"from": "GestionVol", "to": "RH", "type": "Usa"},
+
+    {"from": "Donantes", "to": "Recaudacion", "type": "Colaboración"},
+    {"from": "Donantes", "to": "Financieros", "type": "Colaboración"},
+    {"from": "Recaudacion", "to": "Financieros", "type": "Apoya"},
+    {"from": "Financieros", "to": "Procesos_Centrales", "type": "Financia"},
+
+    {"from": "Hospitales", "to": "Medico", "type": "Colaboración"},
+    {"from": "Hospitales", "to": "Beneficiario", "type": "Referencia de Pacientes"},
+
+    {"from": "Instituciones", "to": "Alianzas", "type": "Colaboración"},
+    {"from": "Patronato", "to": "Procesos_Centrales", "type": "Influencias y retroalimenta"},
+    {"from": "Patronato", "to": "Administracion", "type": "Supervisa"},
+
+    {"from": "BienestarF", "to": "Familias", "type": "Retroalimenta"},
+    {"from": "Familias", "to": "Procesos_Centrales", "type": "Opinión"},
+
+    {"from": "Procesos_Centrales", "to": "Beneficiario", "type": "Brinda servicios"},
+    {"from": "Procesos_Centrales", "to": "Equipo", "type": "Dirigido por"},
+    {"from": "Procesos_Centrales", "to": "Objetivos_Estrategicos", "type": "Contribuyen a"},
+
+    {"from": "Objetivos_Estrategicos", "to": "Donantes", "type": "Motivan"},
+    {"from": "Impacto", "to": "Sociedad", "type": "Sensibiliza"},
+    {"from": "Alianzas", "to": "Recursos_Necesarios", "type": "Redes"},
+    {"from": "Procesos_Centrales", "to": "n1", "type": "Relación"}
+  ]
+}

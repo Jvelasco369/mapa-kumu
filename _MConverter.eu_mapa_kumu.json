@@ -1,47 +1,76 @@
-@controls {
-  top {
-    filter {
-      target: element;
-      by: group;
-      as: buttons;
-      multiple: true;
-      default: show-all;
-    }
-  }
+{
+  "elements": [
+    {"id": "Beneficiario", "label": "Beneficiarios: Niñas, Niños y Adolescentes", "type": "Actores Clave"},
+    {"id": "Familias", "label": "Familias de Beneficiarios", "type": "Actores Clave"},
+    {"id": "Patronato", "label": "Patronato", "type": "Actores Clave"},
+    {"id": "Equipo", "label": "Equipo Operativo y Administrativo", "type": "Actores Clave"},
+    {"id": "Voluntariado", "label": "Voluntarios", "type": "Actores Clave"},
+    {"id": "Donantes", "label": "Donantes Individ. y Corporativos", "type": "Actores Clave"},
+    {"id": "Hospitales", "label": "Hospitales y Médicos Aliados", "type": "Actores Clave"},
+    {"id": "Instituciones", "label": "Instituciones Aliadas educativas-sociales", "type": "Actores Clave"},
+    {"id": "Medico", "label": "Apoyo Médico Integral", "type": "Procesos Centrales"},
+    {"id": "Hospedaje", "label": "Hospedaje", "type": "Procesos Centrales"},
+    {"id": "Alimentacion", "label": "Alimentación y Nutrición", "type": "Procesos Centrales"},
+    {"id": "Educativo", "label": "Apoyo Educativo", "type": "Procesos Centrales"},
+    {"id": "Psicologico", "label": "Apoyo Psicológico y Emocional", "type": "Procesos Centrales"},
+    {"id": "Transporte", "label": "Transporte y Logística Médica", "type": "Procesos Centrales"},
+    {"id": "Recaudacion", "label": "Recaudación de Fondos", "type": "Procesos Centrales"},
+    {"id": "GestionVol", "label": "Voluntariado - Gestión y Participación", "type": "Procesos Centrales"},
+    {"id": "Administracion", "label": "Gestión Institucional y Administración", "type": "Procesos Centrales"},
+    {"id": "Alianzas", "label": "Alianzas Interinstitucionales", "type": "Procesos Centrales"},
+    {"id": "Concientizacion", "label": "Concientización Pública y Prevención", "type": "Procesos Centrales"},
+    {"id": "Infraestructura", "label": "Infraestructura Física", "type": "Recursos Necesarios"},
+    {"id": "Medicamentos", "label": "Medicamentos e Insumos Médicos", "type": "Recursos Necesarios"},
+    {"id": "RH", "label": "Recursos Humanos: Personal y Voluntarios", "type": "Recursos Necesarios"},
+    {"id": "Redes", "label": "Alianzas y Redes de Apoyo", "type": "Recursos Necesarios"},
+    {"id": "Financieros", "label": "Recursos Financieros", "type": "Recursos Necesarios"},
+    {"id": "DonEspecie", "label": "Donaciones en Especie / Materiales", "type": "Recursos Necesarios"},
+    {"id": "Tecnologia", "label": "Tecnología y Sistemas de Información", "type": "Recursos Necesarios"},
+    {"id": "Salud", "label": "Salud Integral del Paciente", "type": "Objetivos Estratégicos"},
+    {"id": "Supervivencia", "label": "Evitar Abandono / Aumentar Supervivencia", "type": "Objetivos Estratégicos"},
+    {"id": "Educacion", "label": "Continuidad Educativa", "type": "Objetivos Estratégicos"},
+    {"id": "BienestarF", "label": "Bienestar Familiar", "type": "Objetivos Estratégicos"},
+    {"id": "Sostenibilidad", "label": "Sostenibilidad Operativa/Financiera", "type": "Objetivos Estratégicos"},
+    {"id": "Impacto", "label": "Impacto Social / Sensibilización", "type": "Objetivos Estratégicos"},
+    {"id": "Sociedad", "label": "Sociedad", "type": "Otros"},
+    {"id": "n1", "label": "Untitled Node", "type": "Otros"}
+  ],
+  "connections": [
+    {"from": "Beneficiario", "to": "Medico", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Hospedaje", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Alimentacion", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Educativo", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Psicologico", "type": "Dependen de"},
+    {"from": "Beneficiario", "to": "Transporte", "type": "Dependen de"},
+    {"from": "Medico", "to": "Medicamentos", "type": "Utiliza"},
+    {"from": "Medico", "to": "Tecnologia", "type": "Utiliza"},
+    {"from": "Hospedaje", "to": "Infraestructura", "type": "Usa"},
+    {"from": "Alimentacion", "to": "DonEspecie", "type": "Usa"},
+    {"from": "Educativo", "to": "Redes", "type": "Usa"},
+    {"from": "Psicologico", "to": "RH", "type": "Usa"},
+    {"from": "Transporte", "to": "Infraestructura", "type": "Usa"},
+    {"from": "GestionVol", "to": "RH", "type": "Usa"},
+    {"from": "Donantes", "to": "Recaudacion", "type": "Colaboración"},
+    {"from": "Donantes", "to": "Financieros", "type": "Colaboración"},
+    {"from": "Recaudacion", "to": "Financieros", "type": "Apoya"},
+    {"from": "Financieros", "to": "Procesos_Centrales", "type": "Financia"},
+    {"from": "Hospitales", "to": "Medico", "type": "Colaboración"},
+    {"from": "Hospitales", "to": "Beneficiario", "type": "Referencia de Pacientes"},
+    {"from": "Instituciones", "to": "Alianzas", "type": "Colaboración"},
+    {"from": "Patronato", "to": "Procesos_Centrales", "type": "Influencias y retroalimenta"},
+    {"from": "Patronato", "to": "Administracion", "type": "Supervisa"},
+    {"from": "BienestarF", "to": "Familias", "type": "Retroalimenta"},
+    {"from": "Familias", "to": "Procesos_Centrales", "type": "Opinión"},
+    {"from": "Procesos_Centrales", "to": "Beneficiario", "type": "Brinda servicios"},
+    {"from": "Procesos_Centrales", "to": "Equipo", "type": "Dirigido por"},
+    {"from": "Procesos_Centrales", "to": "Objetivos_Estrategicos", "type": "Contribuyen a"},
+    {"from": "Objetivos_Estrategicos", "to": "Donantes", "type": "Motivan"},
+    {"from": "Impacto", "to": "Sociedad", "type": "Sensibiliza"},
+    {"from": "Alianzas", "to": "Recursos_Necesarios", "type": "Redes"},
+    {"from": "Procesos_Centrales", "to": "n1", "type": "Relación"}
+  ]
 }
 
-@settings {
-  template: systems;
-  cluster: group;
-  layout: hierarchy;
-}
-
-@style {
-  "Actores Clave" {
-    color: #5B9BD5;
-    size: 20;
-  }
-  "Procesos Centrales" {
-    color: #70AD47;
-    size: 25;
-  }
-  "Recursos Necesarios" {
-    color: #F4B183;
-    size: 18;
-  }
-  "Objetivos Estratégicos" {
-    color: #B084C7;
-    size: 22;
-  }
-  "Otros" {
-    color: #D9D9D9;
-    size: 16;
-  }
-}
-
-@connections {
-  show-labels: true;
-  color: #999;
   width: 1;
 }
 
